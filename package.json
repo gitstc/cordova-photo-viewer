@@ -1,0 +1,60 @@
+{
+  "_from": "git+https://github.com/sarriaroman/photoviewer.git",
+  "_id": "com-sarriaroman-photoviewer@1.2.2",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/com-sarriaroman-photoviewer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/sarriaroman/photoviewer.git",
+    "rawSpec": "https://github.com/sarriaroman/photoviewer.git",
+    "saveSpec": "git+https://github.com/sarriaroman/photoviewer.git",
+    "fetchSpec": "https://github.com/sarriaroman/photoviewer.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/sarriaroman/photoviewer.git#c5a566edceef376cd0d8500eeb30645223098e26",
+  "_spec": "https://github.com/sarriaroman/photoviewer.git",
+  "_where": "D:\\Mobile\\EMPLUS\\HYBRID\\Sipes Rewards 2\\ePoints Template",
+  "author": {
+    "name": "Román A. Sarria"
+  },
+  "bugs": {
+    "url": "https://github.com/sarriaroman/photoviewer/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com-sarriaroman-photoviewer",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin is intended to show a picture from an URL into a Photo Viewer with zoom features.",
+  "devDependencies": {
+    "typescript": "3.2.2"
+  },
+  "homepage": "https://github.com/sarriaroman/photoviewer#readme",
+  "keywords": [
+    "cordova",
+    "photoviewer",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "com-sarriaroman-photoviewer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarriaroman/photoviewer.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "version": "1.2.2"
+}
