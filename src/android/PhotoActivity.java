@@ -43,7 +43,6 @@ public class PhotoActivity extends Activity {
     private ImageView photo;
 
     private ImageButton closeBtn;
-    private ImageButton shareBtn;
     private ProgressBar loadingBar;
 
     private TextView titleTxt;
@@ -54,7 +53,6 @@ public class PhotoActivity extends Activity {
     private JSONObject mHeaders;
     private JSONObject pOptions;
     private File mTempImage;
-    private int shareBtnVisibility;
 
     public static JSONArray mArgs = null;
 
@@ -81,14 +79,10 @@ public class PhotoActivity extends Activity {
                 pOptions.put("centerCrop", false);
             }
 
-            //Set the share button visibility
-            shareBtnVisibility = this.mShare ? View.VISIBLE : View.INVISIBLE;
-
 
         } catch (JSONException exception) {
-            shareBtnVisibility = View.INVISIBLE;
+            
         }
-        shareBtn.setVisibility(shareBtnVisibility);
         //Change the activity title
         if (!mTitle.equals("")) {
             titleTxt.setText(mTitle);
@@ -108,36 +102,6 @@ public class PhotoActivity extends Activity {
             }
         });
 
-        shareBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    try {
-                        Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                        m.invoke(null);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                Uri imageUri;
-                if (mTempImage == null) {
-                    mTempImage = getLocalBitmapFileFromView(photo);
-                }
-
-                imageUri = Uri.fromFile(mTempImage);
-
-                if (imageUri != null) {
-                    Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-
-                    sharingIntent.setType("image/*");
-                    sharingIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
-
-                    startActivity(Intent.createChooser(sharingIntent, "Share"));
-                }
-            }
-        });
-
     }
 
     /**
@@ -146,7 +110,6 @@ public class PhotoActivity extends Activity {
     private void findViews() {
         // Buttons first
         closeBtn = (ImageButton) findViewById(getApplication().getResources().getIdentifier("closeBtn", "id", getApplication().getPackageName()));
-        shareBtn = (ImageButton) findViewById(getApplication().getResources().getIdentifier("shareBtn", "id", getApplication().getPackageName()));
 
         //ProgressBar
         loadingBar = (ProgressBar) findViewById(getApplication().getResources().getIdentifier("loadingBar", "id", getApplication().getPackageName()));
@@ -173,7 +136,6 @@ public class PhotoActivity extends Activity {
     private void hideLoadingAndUpdate() {
         photo.setVisibility(View.VISIBLE);
         loadingBar.setVisibility(View.INVISIBLE);
-        shareBtn.setVisibility(shareBtnVisibility);
 
         mAttacher.update();
     }
