@@ -63,7 +63,6 @@ public class PhotoActivity extends Activity {
         try {
             this.mImage = mArgs.getString(0);
             this.mTitle = mArgs.getString(1);
-            this.mShare = mArgs.getBoolean(2);
             this.mHeaders = parseHeaders(mArgs.optString(5));
             this.pOptions = mArgs.optJSONObject(6);
 
